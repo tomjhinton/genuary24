@@ -9,7 +9,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-let plane = new THREE.BoxGeometry( 16, 8, 4, 200, 200, 50 );
+let plane = new THREE.PlaneGeometry( 10, 10, 60, 60 );
 
 
 
@@ -46,7 +46,8 @@ const [clicked, click] = useState(false)
 const pointMaterial = useRef()
 useFrame((state, delta) => {
    pointMaterial.current.uTime += delta
-   ref.current.rotation.x += (delta * .2)
+
+   ref.current.rotation.z += (delta * .2)
 
     if (
      pointMaterial.current.uResolution.x === 0 &&
@@ -66,38 +67,36 @@ useFrame((state, delta) => {
 <>
 <OrbitControls makeDefault enableZoom={true} maxPolarAngle={Math.PI * .5}/>
 
-<Float>
          <Text
         
         font="FerriteCoreDX-Regular.otf"
         scale={1 }
         maxWidth={1}
-        position={ [ .0, -3.65, 0 ] }
-        fontSize={1.}
+        position={ [ .0, -2.65, 1 ] }
+        fontSize={1.25}
         
         
         >
-          {'Particles, lots of them'.toUpperCase()}
+          {'No palettes'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
         </Text>
-        </Float>
 
 
         <Float>
-          <Text
+         <Text
         
         font="Basement.otf"
-        scale={ 2 }
+        scale={ 1 }
        
        
-        position={ [ 6, 0, -0 ] }
+        position={ [ 4, 0, -0 ] }
         
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/palettes' }
+     onClick={()=>window.location = '#/droste' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -108,7 +107,7 @@ useFrame((state, delta) => {
         </Float>
 
 
-       {/* <Float>
+        <Float>
          <Text
         
         font="Basement.otf"
@@ -118,7 +117,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/tesselation' }
+       onClick={()=>window.location ='#/particles' }
         
         >
           {'<'.toUpperCase()}
@@ -126,8 +125,8 @@ useFrame((state, delta) => {
           side={THREE.DoubleSide}
          
           />
-        </Text> */}
-        {/* </Float> */}
+        </Text>
+        </Float>
 
 
         <Points positions={plane.attributes.position.array} stride={3} ref={ref} rotation-x={Math.PI *  1.} >

@@ -13,6 +13,11 @@ import {
 
 import Home from './Home.js'
 import Particles from './particles/Particles.js'
+import Palettes from "./palettes/Palettes.js";
+import Droste from "./droste/Droste.js";
+import Pixels from "./pixels/Pixels.js";
+
+
 
 
 
@@ -34,6 +39,10 @@ const router = createHashRouter(
       <Route   errorElement={<Home />} />
       <Route path="/" element={<Home />}/>
         <Route path="/particles" element={<Particles />} />
+        <Route path="/palettes" element={<Palettes />} />
+        <Route path="/droste" element={<Droste />} />
+        <Route path="/pixels" element={<Pixels />} />
+
         
 
 

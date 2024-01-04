@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './ParticlesExperience'
+import Experience from './PalettesExperience'
 
-export default function Always(){
+export default function Palettes(){
 
 
 return(
    
     <Canvas
-    camera={{position:[0,0,12]}}
+      camera={{position:[0,0,7]}}
     >
         
         <Experience />

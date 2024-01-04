@@ -8,12 +8,13 @@ export default function Home(){
 
     return(
         <>
-        <Canvas>
+        <Canvas
+        camera={{position:[0,0,17]}}>
         <Float>
         
         <Html
   as='div'
- position={[0, -2, 0]}
+ position={[0, -3, 0]}
 >
   <a className='linkTo' href='https://genuary.art/'>  .More. .Info. .Here. </a>
  
@@ -25,10 +26,10 @@ export default function Home(){
          <Text
         
         font="Basement.otf"
-        scale={ 3 }
-        maxWidth={2}
+        scale={ 1 }
+        maxWidth={6}
        
-        position={ [ -0, 0, -0 ] }
+        position={ [ -6, -3, -0 ] }
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
@@ -36,7 +37,7 @@ export default function Home(){
         
         >
           {' GENUARY is an artificially generated month of time where we build code that makes beautiful things.'}
-          <meshBasicMaterial color="pink" toneMapped={false}
+          <meshBasicMaterial color="red" toneMapped={false}
           side={THREE.DoubleSide}
          
           />
