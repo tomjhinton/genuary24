@@ -16,6 +16,8 @@ import Particles from './particles/Particles.js'
 import Palettes from "./palettes/Palettes.js";
 import Droste from "./droste/Droste.js";
 import Pixels from "./pixels/Pixels.js";
+import Molnar from "./molnar/Molnar.js";
+
 
 
 
@@ -42,6 +44,8 @@ const router = createHashRouter(
         <Route path="/palettes" element={<Palettes />} />
         <Route path="/droste" element={<Droste />} />
         <Route path="/pixels" element={<Pixels />} />
+        <Route path="/molnar" element={<Molnar />} />
+
 
         
 

@@ -1,16 +1,14 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './PixelsExperience'
+import Experience from './MolnarExperience'
 
-export default function Pixels(){
+export default function Molnar(){
 
 
 return(
    
     <Canvas
-
-    camera={{position:[0,0,7]}}
-       
+    camera={{position:[0,0,9]}}
     >
         
         <Experience />

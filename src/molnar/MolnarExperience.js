@@ -9,7 +9,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-let plane = new THREE.PlaneGeometry( 7, 7, 70, 70 );
+let plane = new THREE.PlaneGeometry( 5, 5, 4, 4 );
 
 
 
@@ -70,14 +70,14 @@ useFrame((state, delta) => {
          <Text
         
         font="FerriteCoreDX-Regular.otf"
-        scale={1 }
+        scale={.8 }
         maxWidth={1}
-        position={ [ .0, -2.250, 1 ] }
-        fontSize={1.25}
+        position={ [ .0, -4.250, 1 ] }
+        fontSize={1.}
         
         
         >
-          {'Pixels'.toUpperCase()}
+          {'Vera Molnar'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
@@ -96,7 +96,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/molnar' }
+     onClick={()=>window.location = '#/' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -117,7 +117,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/droste' }
+       onClick={()=>window.location ='#/pixels' }
         
         >
           {'<'.toUpperCase()}
