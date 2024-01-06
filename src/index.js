@@ -17,6 +17,8 @@ import Palettes from "./palettes/Palettes.js";
 import Droste from "./droste/Droste.js";
 import Pixels from "./pixels/Pixels.js";
 import Molnar from "./molnar/Molnar.js";
+import Screensaver from "./screensaver/Screensaver.js";
+
 
 
 
@@ -45,6 +47,8 @@ const router = createHashRouter(
         <Route path="/droste" element={<Droste />} />
         <Route path="/pixels" element={<Pixels />} />
         <Route path="/molnar" element={<Molnar />} />
+        <Route path="/screensaver" element={<Screensaver />} />
+
 
 
         
