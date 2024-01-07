@@ -62,7 +62,10 @@ const router = createHashRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <>
-    <h1 className="titular">Genuary 2024</h1>
+    <h1 className="titular" 
+     onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
+    }
+     onPointerOut={()=>  document.body.style.cursor = 'auto'}>Genuary 2024</h1>
 
   <RouterProvider router={router} />
   </>
