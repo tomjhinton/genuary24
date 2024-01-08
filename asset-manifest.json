@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "./static/css/main.db02762d.css",
-    "main.js": "./static/js/main.c6bd5bd1.js",
+    "main.js": "./static/js/main.8d556cdf.js",
     "static/media/Basement.otf": "./static/media/Basement.34683a87de2a604cf634.otf",
     "static/media/Art Dystopia 2.otf": "./static/media/Art Dystopia 2.5488f4953585150a7c9e.otf",
     "static/media/FerriteCoreDX-Regular.otf": "./static/media/FerriteCoreDX-Regular.ffd5eb41926806919abc.otf",
     "index.html": "./index.html",
     "main.db02762d.css.map": "./static/css/main.db02762d.css.map",
-    "main.c6bd5bd1.js.map": "./static/js/main.c6bd5bd1.js.map"
+    "main.8d556cdf.js.map": "./static/js/main.8d556cdf.js.map"
   },
   "entrypoints": [
     "static/css/main.db02762d.css",
-    "static/js/main.c6bd5bd1.js"
+    "static/js/main.8d556cdf.js"
   ]
 }
