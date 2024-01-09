@@ -20,6 +20,8 @@ import Molnar from "./molnar/Molnar.js";
 import Screensaver from "./screensaver/Screensaver.js";
 import Loading from "./loading/Loading.js";
 import Chaotic from "./chaotic/Chaotic.js";
+import Ascii from "./ascii/Ascii.js";
+
 
 
 
@@ -52,6 +54,8 @@ const router = createHashRouter(
         <Route path="/screensaver" element={<Screensaver />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/chaotic" element={<Chaotic />} />
+        <Route path="/ascii" element={<Ascii />} />
+
 
 
 
