@@ -84,7 +84,7 @@ useFrame((state, delta) => {
         </Text>
 
 
-        {/* <Float>
+        <Float>
          <Text
         
         font="Basement.otf"
@@ -126,7 +126,7 @@ useFrame((state, delta) => {
          
           />
         </Text>
-        </Float> */}
+        </Float>
 
 
         <Points positions={plane.attributes.position.array} stride={3} ref={ref} rotation-x={Math.PI *  1.} >
