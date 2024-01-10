@@ -111,7 +111,7 @@ useFrame((state, delta) => {
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
-      <planeGeometry args={[6, 6]} />
+      <planeGeometry args={[7, 7]} />
       <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} pic={picture}/>
       
     </mesh>

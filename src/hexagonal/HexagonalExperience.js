@@ -96,7 +96,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/molnar' }
+     onClick={()=>window.location = '#/' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -117,7 +117,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/droste' }
+       onClick={()=>window.location ='#/ascii' }
         
         >
           {'<'.toUpperCase()}

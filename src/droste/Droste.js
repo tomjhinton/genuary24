@@ -8,7 +8,8 @@ export default function Droste(){
 return(
    
     <Canvas
-       
+    camera={{position:[0,0,8]}}
+    
     >
         
         <Experience />
