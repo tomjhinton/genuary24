@@ -21,6 +21,8 @@ import Screensaver from "./screensaver/Screensaver.js";
 import Loading from "./loading/Loading.js";
 import Chaotic from "./chaotic/Chaotic.js";
 import Ascii from "./ascii/Ascii.js";
+import Hexagonal from "./hexagonal/Hexagonal.js";
+
 
 
 
@@ -55,6 +57,7 @@ const router = createHashRouter(
         <Route path="/loading" element={<Loading />} />
         <Route path="/chaotic" element={<Chaotic />} />
         <Route path="/ascii" element={<Ascii />} />
+        <Route path="/hexagonal" element={<Hexagonal />} />
 
 
 
