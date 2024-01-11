@@ -22,6 +22,7 @@ import Loading from "./loading/Loading.js";
 import Chaotic from "./chaotic/Chaotic.js";
 import Ascii from "./ascii/Ascii.js";
 import Hexagonal from "./hexagonal/Hexagonal.js";
+import Albers from "./albers/Albers.js";
 
 
 
@@ -58,6 +59,7 @@ const router = createHashRouter(
         <Route path="/chaotic" element={<Chaotic />} />
         <Route path="/ascii" element={<Ascii />} />
         <Route path="/hexagonal" element={<Hexagonal />} />
+        <Route path="/albers" element={<Albers />} />
 
 
 
