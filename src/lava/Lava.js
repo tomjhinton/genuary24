@@ -1,26 +1,18 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './ParticlesExperience'
+import Experience from './LavaExperience.js'
 
-export default function Particles(){
+export default function Lava(){
 
 
 return(
    
     <Canvas
-    camera={{position:[0,0,12]}}
-    // onKeyDown={(e)=>{
-    //     if(e.key == 'ArrowRight'){
-    //         window.location = '#/palettes'
-    //     }  }}
-    // tabIndex={0}
-
+       camera={{position:[0,0,8]}}
     >
         
-        <Experience 
-            
-             />
-        <directionalLight
+        <Experience />
+        {/* <directionalLight
            
            castShadow
            position={ [ 0, 1, 1 ] }
@@ -33,7 +25,7 @@ return(
            shadow-camera-bottom={ - 10 }
            shadow-camera-left={ - 10 }
        />
-       <ambientLight/>
+       <ambientLight/> */}
     </Canvas>
    
 )

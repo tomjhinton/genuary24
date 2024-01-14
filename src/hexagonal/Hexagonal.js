@@ -9,7 +9,18 @@ return(
    
     <Canvas
 
-    camera={{position:[0,0,7]}}
+    camera={{position:[0,0,8]}}
+
+    onCreated={({ gl }) => {
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+          gl.setSize(window.innerWidth, window.innerHeight);
+         
+
+          
+        });
+      }}
        
     >
         

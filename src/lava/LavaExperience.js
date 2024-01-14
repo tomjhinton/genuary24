@@ -1,4 +1,4 @@
-import { OrbitControls , shaderMaterial, Center, Text, Float} from '@react-three/drei'
+import { OrbitControls , shaderMaterial, Center, Text, Float, MarchingCube, MarchingCubes, MarchingPlane} from '@react-three/drei'
 import React, { useRef, useState } from 'react'
 import {  useFrame, extend } from '@react-three/fiber'
 import vertexShader from './shaders/vertex.js'
@@ -8,6 +8,21 @@ import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
+function sliceIntoChunks(arr, chunkSize) {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+      const chunk = arr.slice(i, i + chunkSize);
+      res.push(chunk);
+  }
+  return res;
+}
+
+let plane = new THREE.PlaneGeometry( 1,1,4, 4 );
+
+
+
+
+let planeArr = Array.from(sliceIntoChunks(plane.attributes.position.array, 3))
 
 export default function Experience(){
 
@@ -24,6 +39,9 @@ export default function Experience(){
     
 
 const ref = useRef()
+const ref2 = useRef()
+const ref3 = useRef()
+
 
 
 
@@ -36,9 +54,11 @@ const planeMaterial = useRef()
 
 useFrame((state, delta) => {
     planeMaterial.current.uTime += delta
-   
 
+    ref.current.position.y -= (Math.sin(delta )) *.125
+    ref2.current.position.y += (Math.sin(delta ) *.125)
 
+    ref3.current.position.y -= Math.sin(delta * 0.1) * .025
 
    
 
@@ -63,7 +83,7 @@ useFrame((state, delta) => {
         
         
         >
-          {'Anni Albers'.toUpperCase()}
+          {'Lava Lamp'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
@@ -80,10 +100,14 @@ useFrame((state, delta) => {
        
         position={ [ 4, 0, -0 ] }
         
-        onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
+        onPointerOver={ ()=>{
+          document.body.style.cursor = 'pointer'  
+                 console.log(ref)
+        } 
+
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/lava' }
+     onClick={()=>window.location = '#/wobbly' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -104,7 +128,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/hexagonal' }
+       onClick={()=>window.location ='#/albers' }
         
         >
           {'<'.toUpperCase()}
@@ -116,18 +140,28 @@ useFrame((state, delta) => {
         </Float>
 
 
-<mesh
-     position={[0, 0, 0]}
-      ref={ref}
-      scale={clicked ? 1. : 1}
-      onClick={(event) => click(!clicked)}
-      onPointerOver={(event) => hover(true)}
-      onPointerOut={(event) => hover(false)}>
-      <planeGeometry  args={[7,9, 100, 100]}  />
-      <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} />
-      
-    </mesh>
+        <MarchingCubes resolution={100} maxPolyCount={200000} enableUvs={true} enableColors={false} scale={2}>
 
+           
+              <MarchingCube  ref={ref}   strength={1.5} subtract={12}  position={[0,0,0]}/>
+
+              <MarchingCube  ref={ref2}   strength={1.} subtract={12}  position={[0,0,0]}/>
+              <MarchingCube  ref={ref3}   strength={1.5} subtract={12}  position={[0,0,0]}/>
+
+
+
+  <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} />
+
+  
+
+  {/* {/* <MarchingPlane planeType="x" strength={0.5} subtract={12} /> */}
+  <MarchingPlane planeType="y" strength={0.5} subtract={12} />
+  {/* <MarchingPlane planeType="z" strength={0.5} subtract={12} /> */} 
+
+
+
+
+</MarchingCubes>
 
     
       

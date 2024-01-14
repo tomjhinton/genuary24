@@ -9,7 +9,7 @@ return(
    
     <Canvas
 
-    camera={{position:[0,0,7]}}
+    camera={{position:[0,0,8]}}
        
     >
         

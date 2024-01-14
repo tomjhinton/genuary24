@@ -1,14 +1,14 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './ParticlesExperience'
+import Experience from './KbExperience'
 
-export default function Particles(){
+export default function Kb(){
 
 
 return(
    
     <Canvas
-    camera={{position:[0,0,12]}}
+    camera={{position:[0,0,8]}}
     // onKeyDown={(e)=>{
     //     if(e.key == 'ArrowRight'){
     //         window.location = '#/palettes'

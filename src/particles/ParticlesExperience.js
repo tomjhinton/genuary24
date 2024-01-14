@@ -33,8 +33,7 @@ export default function Experience(){
     )
     extend({PointMaterial})
 
-    console.log(PointMaterial)
-
+  
 const ref = useRef()
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
@@ -63,7 +62,7 @@ useFrame((state, delta) => {
 // useFrame((state, delta) => (ref.current.rotation.x += delta))
     return(
 
-<>
+< >
 <OrbitControls makeDefault enableZoom={true} maxPolarAngle={Math.PI * .5}/>
 
 <Float>
@@ -98,6 +97,8 @@ useFrame((state, delta) => {
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
      onClick={()=>window.location = '#/palettes' }
+
+    
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}

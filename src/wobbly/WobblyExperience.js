@@ -8,14 +8,14 @@ import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
-
 export default function Experience(){
+  const picture = useLoader(TextureLoader,  `droste.jpeg`)
 
     const PlaneMaterial = shaderMaterial(
 
         {
             uTime: 0,
-            
+            pic: picture,
         },
         vertexShader,
         fragmentShader
@@ -24,24 +24,12 @@ export default function Experience(){
     
 
 const ref = useRef()
-
-
-
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
 const [clicked, click] = useState(false)
 const planeMaterial = useRef()
-
-
-
 useFrame((state, delta) => {
     planeMaterial.current.uTime += delta
-   
-
-
-
-   
-
 })
 
 
@@ -63,7 +51,7 @@ useFrame((state, delta) => {
         
         
         >
-          {'Anni Albers'.toUpperCase()}
+          {'Wobbly'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
@@ -83,7 +71,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/lava' }
+     onClick={()=>window.location = '#/kb' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -104,7 +92,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/hexagonal' }
+       onClick={()=>window.location ='#/lava' }
         
         >
           {'<'.toUpperCase()}
@@ -117,20 +105,16 @@ useFrame((state, delta) => {
 
 
 <mesh
-     position={[0, 0, 0]}
+     
       ref={ref}
       scale={clicked ? 1. : 1}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
-      <planeGeometry  args={[7,9, 100, 100]}  />
-      <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} />
+      <sphereGeometry args={[3, 300, 300, 300]} />
+      <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} pic={picture} transparent/>
       
     </mesh>
-
-
-    
-      
       </>
     )
 }

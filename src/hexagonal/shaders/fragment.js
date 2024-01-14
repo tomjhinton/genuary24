@@ -137,7 +137,7 @@ void main() {
 
    alpha = 1.- step(shape(rote, 6., .6 ), .5) ;
 
-    alpha *= 1.-step(shape(uv-.25, 6., .6 ), .5) ;
+    alpha *= 1.-step(shape(vec2(uv.x- (sin(uTime *.2)+.2) , uv.y-.25), 6., .6 ), .5) ;
      
         // color = pos;
 

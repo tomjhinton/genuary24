@@ -23,6 +23,9 @@ import Chaotic from "./chaotic/Chaotic.js";
 import Ascii from "./ascii/Ascii.js";
 import Hexagonal from "./hexagonal/Hexagonal.js";
 import Albers from "./albers/Albers.js";
+import Lava from "./lava/Lava.js";
+import Wobbly from "./wobbly/Wobbly.js";
+import Kb from "./kb/Kb.js";
 
 
 
@@ -60,6 +63,10 @@ const router = createHashRouter(
         <Route path="/ascii" element={<Ascii />} />
         <Route path="/hexagonal" element={<Hexagonal />} />
         <Route path="/albers" element={<Albers />} />
+        <Route path="/lava" element={<Lava />} />
+        <Route path="/wobbly" element={<Wobbly />} />
+        <Route path="/kb" element={<Kb />} />
+
 
 
 

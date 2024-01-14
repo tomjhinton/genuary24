@@ -9,7 +9,7 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-let plane = new THREE.PlaneGeometry( 7, 7, 10, 10 );
+let plane = new THREE.PlaneGeometry( 14, 14, 20, 20 );
 
 
 
@@ -33,7 +33,6 @@ export default function Experience(){
     )
     extend({PointMaterial})
 
-    console.log(PointMaterial)
 
 const ref = useRef()
 // Hold state for hovered and clicked events
@@ -57,6 +56,9 @@ useFrame((state, delta) => {
      pointMaterial.current.uResolution.y = screen.height;
      
     }
+
+    plane.position= [0,0,0]
+    
 })
 
 
@@ -96,7 +98,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/' }
+     onClick={()=>window.location = '#/alber' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
