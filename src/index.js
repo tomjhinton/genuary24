@@ -26,6 +26,8 @@ import Albers from "./albers/Albers.js";
 import Lava from "./lava/Lava.js";
 import Wobbly from "./wobbly/Wobbly.js";
 import Kb from "./kb/Kb.js";
+import Physics from "./physics/Physics.js";
+import Ten from "./ten/Ten.js";
 
 
 
@@ -66,6 +68,8 @@ const router = createHashRouter(
         <Route path="/lava" element={<Lava />} />
         <Route path="/wobbly" element={<Wobbly />} />
         <Route path="/kb" element={<Kb />} />
+        <Route path="/physics" element={<Physics />} />
+        <Route path="/ten" element={<Ten />} />
 
 
 

@@ -1,17 +1,25 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './PalettesExperience'
+import Experience from './TenExperience'
 
-export default function Palettes(){
+export default function Ten(){
 
 
 return(
    
     <Canvas
-      camera={{position:[0,0,8]}}
+    camera={{position:[0,0,12]}}
+    // onKeyDown={(e)=>{
+    //     if(e.key == 'ArrowRight'){
+    //         window.location = '#/palettes'
+    //     }  }}
+    // tabIndex={0}
+
     >
         
-        <Experience />
+        <Experience 
+            
+             />
         {/* <directionalLight
            
            castShadow
