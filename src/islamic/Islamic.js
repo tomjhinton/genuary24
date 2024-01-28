@@ -1,25 +1,17 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './TenExperience'
+import Experience from './IslamicExperience.js'
 
-export default function Ten(){
+export default function Islamic(){
 
 
 return(
    
     <Canvas
-    camera={{position:[0,0,10]}}
-    // onKeyDown={(e)=>{
-    //     if(e.key == 'ArrowRight'){
-    //         window.location = '#/palettes'
-    //     }  }}
-    // tabIndex={0}
-
+       camera={{position:[0,0,8]}}
     >
         
-        <Experience 
-            
-             />
+        <Experience />
         {/* <directionalLight
            
            castShadow

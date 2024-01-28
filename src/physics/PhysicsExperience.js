@@ -106,7 +106,7 @@ const collisionEnter = () =>
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/' }
+     onClick={()=>window.location = '#/ten' }
 
     
         >
@@ -129,7 +129,7 @@ const collisionEnter = () =>
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/wobbly' }
+       onClick={()=>window.location ='#/kb' }
         
         >
           {'<'.toUpperCase()}

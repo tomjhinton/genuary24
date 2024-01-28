@@ -9,10 +9,10 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
 
-let plane = new THREE.PlaneGeometry( 12, 12, 99, 99 );
+let plane = new THREE.PlaneGeometry( 7, 7, 15, 15 );
 
 
-console.log(plane)
+
 
 
 export default function Experience(){
@@ -33,7 +33,8 @@ export default function Experience(){
     )
     extend({PointMaterial})
 
-  
+    console.log(PointMaterial)
+
 const ref = useRef()
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
@@ -45,7 +46,8 @@ const [clicked, click] = useState(false)
 const pointMaterial = useRef()
 useFrame((state, delta) => {
    pointMaterial.current.uTime += delta
-  //  ref.current.rotation.x += (delta * .2)
+
+  //  ref.current.rotation.z += (delta * .2)
 
     if (
      pointMaterial.current.uResolution.x === 0 &&
@@ -62,43 +64,39 @@ useFrame((state, delta) => {
 // useFrame((state, delta) => (ref.current.rotation.x += delta))
     return(
 
-< >
+<>
 <OrbitControls makeDefault enableZoom={true} maxPolarAngle={Math.PI * .5}/>
 
-<Float>
          <Text
         
         font="FerriteCoreDX-Regular.otf"
         scale={1 }
-        maxWidth={2}
-        position={ [ .0, -3.65, 1 ] }
+       
+        position={ [ .0, -3.250, 1 ] }
         fontSize={1.}
         
         
         >
-          {'Draw 10K of something'.toUpperCase()}
+          {'16 x 16'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
         </Text>
-        </Float>
 
 
-         <Float>
-          <Text
+        <Float>
+         <Text
         
         font="Basement.otf"
         scale={ 1 }
        
        
-        position={ [ 6, 0, 1 ] }
+        position={ [ 4, 0, -0 ] }
         
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/islamic' }
-
-    
+     onClick={()=>window.location = '#/impossible' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -106,7 +104,7 @@ useFrame((state, delta) => {
          
           />
         </Text>
-        </Float> 
+        </Float>
 
 
         <Float>
@@ -119,7 +117,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/physics' }
+       onClick={()=>window.location ='#/plp' }
         
         >
           {'<'.toUpperCase()}
@@ -127,7 +125,7 @@ useFrame((state, delta) => {
           side={THREE.DoubleSide}
          
           />
-        </Text> 
+        </Text>
         </Float>
 
 

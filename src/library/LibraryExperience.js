@@ -1,4 +1,4 @@
-import { OrbitControls , shaderMaterial, Center, Text, Float, Point, Points} from '@react-three/drei'
+import { OrbitControls , shaderMaterial, Center, Text, Float} from '@react-three/drei'
 import React, { useRef, useState } from 'react'
 import {  useFrame, extend } from '@react-three/fiber'
 import vertexShader from './shaders/vertex.js'
@@ -6,55 +6,75 @@ import fragmentShader from './shaders/fragment.js'
 import * as THREE from 'three'
 import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { MeshLineGeometry, MeshLineMaterial, raycast } from 'meshline'
 
-
-
-let plane = new THREE.PlaneGeometry( 12, 12, 99, 99 );
-
-
-console.log(plane)
+extend({ MeshLineGeometry, MeshLineMaterial })
 
 
 export default function Experience(){
- 
 
-    const PointMaterial = shaderMaterial(
+    const PlaneMaterial = shaderMaterial(
 
         {
             uTime: 0,
-            uResolution: {x: screen.width, y: screen.height}
             
-           
         },
         vertexShader,
-        fragmentShader,
-    
-        
+        fragmentShader
     )
-    extend({PointMaterial})
+    extend({PlaneMaterial})
+    
 
-  
 const ref = useRef()
+const ref2 = useRef()
+const ref3 = useRef()
+
+
+
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
 const [clicked, click] = useState(false)
+const planeMaterial = useRef()
+
+let points = []
+
+for(let i=0; i<300; i++){
+
+  points.push([Math.random()*5-2, Math.random()*5-2, Math.random()*5-2])
 
 
+}
+
+let points2 = []
+
+for(let i=0; i<300; i++){
+
+  points2.push([Math.random()*5-2, Math.random()*5-2, Math.random()*5-2])
 
 
-const pointMaterial = useRef()
+}
+
+let points3 = []
+
+for(let i=0; i<300; i++){
+
+  points3.push([Math.random()*5-2, Math.random()*5-2, Math.random()*5-2])
+
+
+}
+
+
 useFrame((state, delta) => {
-   pointMaterial.current.uTime += delta
-  //  ref.current.rotation.x += (delta * .2)
+//     planeMaterial.current.uTime += delta
+   
+ref.current.rotation.z += (delta * .2)
+ref2.current.rotation.y += (delta * .12)
+ref3.current.rotation.x += (delta * .17)
 
-    if (
-     pointMaterial.current.uResolution.x === 0 &&
-     pointMaterial.current.uResolution.y === 0
-    ) {
-     pointMaterial.current.uResolution.x = screen.width;
-     pointMaterial.current.uResolution.y = screen.height;
-     
-    }
+
+// points[0,1] += delta
+   
+
 })
 
 
@@ -62,21 +82,21 @@ useFrame((state, delta) => {
 // useFrame((state, delta) => (ref.current.rotation.x += delta))
     return(
 
-< >
+<>
 <OrbitControls makeDefault enableZoom={true} maxPolarAngle={Math.PI * .5}/>
 
 <Float>
          <Text
         
         font="FerriteCoreDX-Regular.otf"
-        scale={1 }
-        maxWidth={2}
-        position={ [ .0, -3.65, 1 ] }
-        fontSize={1.}
+        scale={ .25 }
+      //  maxWidth={1}
+       position={ [ .0, -3.65, 1 ] }
+       fontSize={1}
         
         
         >
-          {'Draw 10K of something'.toUpperCase()}
+          {'Use a library that you havent used before'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
@@ -84,21 +104,19 @@ useFrame((state, delta) => {
         </Float>
 
 
-         <Float>
-          <Text
+
+        <Float>
+         <Text
         
         font="Basement.otf"
         scale={ 1 }
        
-       
-        position={ [ 6, 0, 1 ] }
+        position={ [ 4, 0, -0 ] }
         
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/islamic' }
-
-    
+     onClick={()=>window.location = '#/plp' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -106,7 +124,7 @@ useFrame((state, delta) => {
          
           />
         </Text>
-        </Float> 
+        </Float>
 
 
         <Float>
@@ -119,7 +137,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/physics' }
+       onClick={()=>window.location ='#/type' }
         
         >
           {'<'.toUpperCase()}
@@ -127,15 +145,29 @@ useFrame((state, delta) => {
           side={THREE.DoubleSide}
          
           />
-        </Text> 
+        </Text>
         </Float>
 
 
-        <Points positions={plane.attributes.position.array} stride={3} ref={ref} rotation-x={Math.PI *  1.} >
-        <pointMaterial ref={pointMaterial} depthWrite={false} transparent />
-    </Points>
+<mesh ref={ref} raycast={raycast} onPointerOver={console.log(ref)}>
+        <meshLineGeometry points={points} />
+        <meshLineMaterial lineWidth={.01} transparent opacity={.8} color="hotpink" />
+      </mesh>
 
-     
+
+      <mesh ref={ref2} raycast={raycast} onPointerOver={console.log(ref)}>
+        <meshLineGeometry points={points2} />
+        <meshLineMaterial lineWidth={.01} transparent opacity={.8} color="chartreuse" />
+      </mesh>
+
+
+      <mesh ref={ref3} raycast={raycast} onPointerOver={console.log(ref)}>
+        <meshLineGeometry points={points2} />
+        <meshLineMaterial lineWidth={.01} transparent opacity={.8} color="aqua"  />
+      </mesh>
+
+    
+      
       </>
     )
 }

@@ -28,6 +28,16 @@ import Wobbly from "./wobbly/Wobbly.js";
 import Kb from "./kb/Kb.js";
 import Physics from "./physics/Physics.js";
 import Ten from "./ten/Ten.js";
+import Islamic from "./islamic/Islamic.js";
+import Bauhaus from "./bauhaus/Bauhaus.js";
+import Flocking from "./flocking/Flocking.js";
+import Type from "./type/Type.js";
+import Library from "./library/Library.js";
+import Plp from "./plp/Plp.js";
+import Sixteen from "./sixteen/Sixteen.js";
+import Impossible from "./impossible/Impossible.js";
+import Saved from "./saved/Saved.js";
+import Seed from "./seed/Seed.js";
 
 
 
@@ -70,6 +80,21 @@ const router = createHashRouter(
         <Route path="/kb" element={<Kb />} />
         <Route path="/physics" element={<Physics />} />
         <Route path="/ten" element={<Ten />} />
+        <Route path="/islamic" element={<Islamic />} />
+        <Route path="/bauhaus" element={<Bauhaus />} />
+        <Route path="/flocking" element={<Flocking />} />
+        <Route path="/type" element={<Type />} />
+        <Route path="/library" element={<Library />} />
+        <Route path="/plp" element={<Plp />} />
+        <Route path="/sixteen" element={<Sixteen />} />
+        <Route path="/impossible" element={<Impossible />} />
+        <Route path="/saved" element={<Saved />} />
+        <Route path="/seed" element={<Seed />} />
+
+
+
+
+
 
 
 

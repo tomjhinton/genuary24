@@ -1,25 +1,17 @@
 import ReactDOM from 'react-dom/client'
 import { Canvas } from '@react-three/fiber'
-import Experience from './TenExperience'
+import Experience from './ImpossibleExperience.js'
 
-export default function Ten(){
+export default function Impossible(){
 
 
 return(
    
     <Canvas
-    camera={{position:[0,0,10]}}
-    // onKeyDown={(e)=>{
-    //     if(e.key == 'ArrowRight'){
-    //         window.location = '#/palettes'
-    //     }  }}
-    // tabIndex={0}
-
+       camera={{position:[0,0,8]}}
     >
         
-        <Experience 
-            
-             />
+        <Experience />
         {/* <directionalLight
            
            castShadow
@@ -33,7 +25,7 @@ return(
            shadow-camera-bottom={ - 10 }
            shadow-camera-left={ - 10 }
        />
-       <ambientLight/> */}
+       <ambientLight/>  */}
     </Canvas>
    
 )
