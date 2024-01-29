@@ -38,6 +38,8 @@ import Sixteen from "./sixteen/Sixteen.js";
 import Impossible from "./impossible/Impossible.js";
 import Saved from "./saved/Saved.js";
 import Seed from "./seed/Seed.js";
+import Hour from "./hour/Hour.js";
+import Skeuomorphism from "./skeuomorphism/Skeuomorphism.js";
 
 
 
@@ -90,6 +92,9 @@ const router = createHashRouter(
         <Route path="/impossible" element={<Impossible />} />
         <Route path="/saved" element={<Saved />} />
         <Route path="/seed" element={<Seed />} />
+        <Route path="/hour" element={<Hour />} />
+        <Route path="/skeuomorphism" element={<Skeuomorphism />} />
+
 
 
 
