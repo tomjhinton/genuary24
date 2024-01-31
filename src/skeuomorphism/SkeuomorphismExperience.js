@@ -87,7 +87,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/seed' }
+     onClick={()=>window.location = '#/sdf' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}

@@ -40,6 +40,9 @@ import Saved from "./saved/Saved.js";
 import Seed from "./seed/Seed.js";
 import Hour from "./hour/Hour.js";
 import Skeuomorphism from "./skeuomorphism/Skeuomorphism.js";
+import Sdf from "./sdf/Sdf.js";
+import Shader from "./shader/Shader.js";
+import Sound from "./sound/Sound.js";
 
 
 
@@ -94,6 +97,11 @@ const router = createHashRouter(
         <Route path="/seed" element={<Seed />} />
         <Route path="/hour" element={<Hour />} />
         <Route path="/skeuomorphism" element={<Skeuomorphism />} />
+        <Route path="/sdf" element={<Sdf />} />
+        <Route path="/shader" element={<Shader />} />
+        <Route path="/sound" element={<Sound />} />
+
+
 
 
 

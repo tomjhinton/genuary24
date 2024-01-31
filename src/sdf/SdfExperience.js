@@ -8,14 +8,14 @@ import { useLoader } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 
 
+
 export default function Experience(){
-  const picture = useLoader(TextureLoader,  `droste.jpeg`)
 
     const PlaneMaterial = shaderMaterial(
 
         {
             uTime: 0,
-            pic: picture,
+            
         },
         vertexShader,
         fragmentShader
@@ -24,12 +24,24 @@ export default function Experience(){
     
 
 const ref = useRef()
+
+
+
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
 const [clicked, click] = useState(false)
 const planeMaterial = useRef()
+
+
+
 useFrame((state, delta) => {
     planeMaterial.current.uTime += delta
+   
+    ref.current.rotation.x += (delta * .4)
+
+
+   
+
 })
 
 
@@ -44,14 +56,14 @@ useFrame((state, delta) => {
          <Text
         
         font="FerriteCoreDX-Regular.otf"
-        scale={ .5 }
-       maxWidth={1}
-       position={ [ .0, -1.65, 1 ] }
+        scale={ .75 }
+       maxWidth={40}
+       position={ [ .0, -2.65, 3 ] }
        fontSize={1}
         
         
         >
-          {'Droste effect'.toUpperCase()}
+          {'SDF'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
           side={THREE.DoubleSide}
           />
@@ -71,7 +83,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
-     onClick={()=>window.location = '#/pixels' }
+     onClick={()=>window.location = '#/shader' }
         >
           {'>'.toUpperCase()}
           <meshBasicMaterial color="white" toneMapped={false}
@@ -92,7 +104,7 @@ useFrame((state, delta) => {
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/palettes' }
+       onClick={()=>window.location ='#/skeuomorphism' }
         
         >
           {'<'.toUpperCase()}
@@ -105,16 +117,20 @@ useFrame((state, delta) => {
 
 
 <mesh
-     
+     position={[0, 0, 0]}
       ref={ref}
       scale={clicked ? 1. : 1}
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
-      <planeGeometry args={[7, 7,100,100]} />
-      <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} pic={picture}/>
+      <boxGeometry  args={[5,5,5  ]}  />
+      <planeMaterial ref={planeMaterial} side={THREE.DoubleSide} transparent/>
       
     </mesh>
+
+
+    
+      
       </>
     )
 }
