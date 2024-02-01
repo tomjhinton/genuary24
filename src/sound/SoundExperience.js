@@ -9,17 +9,18 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { RigidBody, Physics } from '@react-three/rapier'
 
 import * as Tone from 'tone'
+import { useEffect } from 'react'
 
 
-const synthA = new Tone.FMSynth().toDestination();
-const notesLow = ['E2','F2','G2','A2','D2','E3','F3','G3','A3','D3']
+let synthA = new Tone.FMSynth().toDestination();
+let notesLow = ['E2','F2','G2','A2','D2','E3','F3','G3','A3','D3']
 
-const synthB = new Tone.FMSynth().toDestination();
+let synthB = new Tone.FMSynth().toDestination();
 
-const synthC = new Tone.FMSynth().toDestination();
+let synthC = new Tone.FMSynth().toDestination();
 
 
-console.log(synthA)
+
 
 
 function ball(){
@@ -92,7 +93,12 @@ synthB.set({
 })
 
 
+
+
+
 export default function Experience(){
+
+  
  
 
     const PlaneMaterial = shaderMaterial(
@@ -118,6 +124,75 @@ const ref = useRef()
 // Hold state for hovered and clicked events
 const [hovered, hover] = useState(false)
 const [clicked, click] = useState(false)
+
+
+useEffect(()=>{
+  Tone.Transport.start()
+
+ synthA = new Tone.FMSynth().toDestination();
+
+ synthB = new Tone.FMSynth().toDestination();
+
+ synthC = new Tone.FMSynth().toDestination();
+
+
+ synthA.set({
+  "harmonicity": 0.5,
+  "modulationIndex": 1.2,
+  "oscillator": {
+            "type": "fmsawtooth",
+            "modulationType": "sine",
+            "modulationIndex": 20,
+            "harmonicity": 3
+  },
+  "envelope": {
+            "attack": 0.05,
+            "decay": 0.3,
+            "sustain": 0.1,
+            "release": 1.2
+  },
+  "modulation": {
+            "volume": 0,
+            "type": "triangle"
+  },
+  "modulationEnvelope": {
+            "attack": 0.35,
+            "decay": 0.1,
+            "sustain": 1,
+            "release": 0.01
+  }
+})
+
+
+synthB.set({
+  "harmonicity": 0.5,
+  "modulationIndex": 1.2,
+  "oscillator": {
+            "type": "fmsawtooth",
+            "modulationType": "sine",
+            "modulationIndex": 20,
+            "harmonicity": 3
+  },
+  "envelope": {
+            "attack": 0.5,
+            "decay": 0.3,
+            "sustain": 0.1,
+            "release": 1.2
+  },
+  "modulation": {
+            "volume": 0,
+            "type": "triangle"
+  },
+  "modulationEnvelope": {
+            "attack": 0.5,
+            "decay": 0.2,
+            "sustain": 1,
+            "release": 0.01
+  }
+})
+
+},[])
+  
 
 
 
@@ -185,7 +260,12 @@ const collisionEnter = () =>
     }
      onPointerOut={()=>  document.body.style.cursor = 'auto'}
      onClick={()=>{
-      Tone.Transport.pause() 
+      synthA.dispose()
+        synthB.dispose()
+        synthC.dispose()
+        Tone.Transport.pause() 
+
+   
       window.location = '#/particles'} }
 
     
@@ -209,7 +289,13 @@ const collisionEnter = () =>
         onPointerOver={ ()=>  document.body.style.cursor = 'pointer'
       }
        onPointerOut={()=>  document.body.style.cursor = 'auto'}
-       onClick={()=>window.location ='#/shader' }
+       onClick={()=>{
+        synthA.dispose()
+        synthB.dispose()
+        synthC.dispose()
+        Tone.Transport.pause() 
+
+        window.location ='#/shader' }}
         
         >
           {'<'.toUpperCase()}
